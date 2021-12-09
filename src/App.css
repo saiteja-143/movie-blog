@@ -1,38 +1,111 @@
-.App {
+.Movie_poster {
+  object-fit: cover;
+  height: 500px;
+  width: 360px;
+}
+.Movie_specs {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.Movie_container {
+  width: 360px;
+  background-color: aqua;
+}
+body {
+  margin: 24px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 15x;
+}
+
+.Movie_Summary {
+  color: rgb(2, 1, 2);
+}
+.Rating {
+  font-size: 18px;
+  font-weight: 400;
+}
+.Movie_name {
+  margin: 8px 0px;
+}
+.Movie-list {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-content: flex-end;
+}
+
+.container {
+  display: flex;
+  gap: 10px;
+}
+.likes-dislikes {
+  font-size: 20px;
+  border-radius: 10px;
+}
+
+.Addbutton {
+  display: flex;
+
+  padding-bottom: 20px;
+  justify-content: flex-end;
+}
+
+.nav {
+  display: flex;
+
+  background-color: grey;
+  align-items: baseline;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.Movies-Blog {
+  padding-top: 5px;
+}
+
+li {
+  list-style: none;
+  padding: 10px;
+}
+
+.i404 {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.dataform {
+  text-align: center;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.Summary {
+  padding-right: 35px;
+  object-fit: cover;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.Rating {
+  padding-right: 47px;
+}
+.Movie_name {
+  padding-right: 10px;
+}
+.poster {
+  padding-right: 50px;
+}
+.submit {
+  text-align: center;
+}
+.Add-movie-button {
+  background-color: rgb(60, 60, 226);
+  color: aliceblue;
+}
+#outlined-basic {
+  width: 900px;
+}
+.movie-details-contgainer {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
 }
-
-.App-link {
-  color: #61dafb;
+.edit-delete {
+  display: flex;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.edit-button {
+  font-size: small;
 }
