@@ -109,3 +109,8 @@ li {
 .edit-button {
   font-size: small;
 }
+.f-b-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

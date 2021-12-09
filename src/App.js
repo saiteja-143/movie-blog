@@ -4,16 +4,14 @@ import { Redirect, Switch, Route, Link } from "react-router-dom";
 import React from "react";
 import Button from "@mui/material/Button";
 import { useState } from "react";
-import TextField from "@mui/material/TextField";
 import { Movielist } from "./Movieslist.js";
 import { MovieDetails } from "./MovieDetails";
 import { Notfound } from "./Notfound";
 import { Home } from "./Home";
-import { useHistory } from "react-router-dom";
+import { Addmovie } from "./Addmovie";
 
 function App() {
-  const history = useHistory();
-  const [Movies, setMovies] = useState([
+  const Initialmovies = [
     {
       Movie_name: "Avengers EndGame",
       poster:
@@ -57,26 +55,9 @@ function App() {
         "Thor sets out on a journey to defeat Malekith, the leader of the Dark Elves when he returns to Asgard to retrieve a dangerous weapon and fulfill his desire of destroying the Nine Realms.",
       trailer: "https://www.youtube.com/embed/npvJ9FTgZbM",
     },
-  ]);
+  ];
+  const [Movies, setMovies] = useState(Initialmovies);
 
-  const [movie, nomovies] = useState(true);
-  const [MovieName, setMovieName] = useState("");
-  const [Poster, setposter] = useState("");
-  const [rating, setRating] = useState("");
-  const [Moviedescription, setdescription] = useState("");
-  const [MovieTrailer, setMovieTrailer] = useState("");
-  const addnewmovie = () => {
-    const newmovie = {
-      Movie_name: MovieName,
-      poster: Poster,
-      Rating: rating,
-      Summary: Moviedescription,
-      trailer: MovieTrailer,
-    };
-    setMovies([...Movies, newmovie]);
-    nomovies(!movie);
-    history.push("/movies");
-  };
   return (
     <div>
       <ul className="nav">
@@ -120,58 +101,7 @@ function App() {
         </Route>
 
         <Route exact path="/add">
-          <div className="dataform">
-            <p>
-              <TextField
-                id="outlined-basic"
-                label="Movie Name"
-                variant="outlined"
-                onChange={(event) => setMovieName(event.target.value)}
-              ></TextField>
-            </p>
-            <p>
-              <TextField
-                id="outlined-basic"
-                label="Poster"
-                variant="outlined"
-                onChange={(event) => setposter(event.target.value)}
-              />
-            </p>
-            <p>
-              {" "}
-              <TextField
-                id="outlined-basic"
-                label="Rating"
-                variant="outlined"
-                onChange={(event) => setRating(event.target.value)}
-              />
-            </p>
-            <p>
-              {" "}
-              <TextField
-                id="outlined-basic"
-                label="Summary"
-                variant="outlined"
-                onChange={(event) => setdescription(event.target.value)}
-              />
-            </p>
-            <p>
-              <TextField
-                id="outlined-basic"
-                label="Movie Trailer"
-                variant="outlined"
-                onChange={(event) => setMovieTrailer(event.target.value)}
-              ></TextField>
-            </p>
-
-            <Button
-              variant="contained"
-              onClick={addnewmovie}
-              className="submit"
-            >
-              AddMovie
-            </Button>
-          </div>
+          <Addmovie Movies={Movies} setMovies={setMovies} />
         </Route>
         <Route exact path="/">
           <Home />
@@ -187,5 +117,4 @@ function App() {
     </div>
   );
 }
-
 export default App;

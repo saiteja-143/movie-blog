@@ -4,10 +4,15 @@ import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { useHistory } from "react-router-dom";
 import EditIcon from "@mui/icons-material/Edit";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import Button from "@mui/material/Button";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 export function MovieDetails({ movies }) {
   const history = useHistory();
   const edithistory = useHistory();
+  const backhistory = useHistory();
+  const forwardhistory = useHistory();
   const { id } = useParams();
   const movie = movies[id];
   const deletemovie = () => {
@@ -57,6 +62,22 @@ export function MovieDetails({ movies }) {
       </div>
       <div>
         <p className="Movie_Summary">{movie.Summary}</p>
+        <div className="f-b-button">
+          <Button
+            onClick={() => backhistory.goBack()}
+            startIcon={<ArrowBackIcon />}
+            variant="contained"
+          >
+            Back
+          </Button>
+          <Button
+            onClick={() => forwardhistory.goForward()}
+            startIcon={<ArrowForwardIcon />}
+            variant="contained"
+          >
+            Forward
+          </Button>
+        </div>
       </div>
     </div>
   );
