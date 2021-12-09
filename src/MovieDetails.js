@@ -25,7 +25,8 @@ export function MovieDetails({ movies, setMovies }) {
     history.push("/movies");
   };
   const editmovie = () => {
-    movies.splice(id, 1);
+    const remain = movies.filter((idx) => idx != movies[id]);
+    setMovies(remain);
     edithistory.push("/add");
   };
 
