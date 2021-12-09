@@ -8,16 +8,19 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import Button from "@mui/material/Button";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
-export function MovieDetails({ movies }) {
+export function MovieDetails({ movies, setMovies }) {
   const history = useHistory();
   const edithistory = useHistory();
   const backhistory = useHistory();
   const forwardhistory = useHistory();
   const { id } = useParams();
   const movie = movies[id];
+  console.log(id);
   const deletemovie = () => {
+    const remain = movies.filter((idx) => idx != movies[id]);
     alert("This Action will permenantly Delete the Movie");
-    movies.splice(id, 1);
+
+    setMovies(remain);
 
     history.push("/movies");
   };

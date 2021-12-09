@@ -96,8 +96,8 @@ function App() {
             <Movielist Movies={Movies} />
           </div>
         </Route>
-        <Route path="/movies/:id">
-          <MovieDetails movies={Movies} />
+        <Route exact path="/movies/:id">
+          <MovieDetails movies={Movies} setMovies={setMovies} />
         </Route>
 
         <Route exact path="/add">
