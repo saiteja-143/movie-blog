@@ -9,6 +9,7 @@ import { MovieDetails } from "./MovieDetails";
 import { Notfound } from "./Notfound";
 import { Home } from "./Home";
 import { Addmovie } from "./Addmovie";
+import { Editmovie } from "./Editmovie";
 
 function App() {
   const Initialmovies = [
@@ -96,8 +97,12 @@ function App() {
             <Movielist Movies={Movies} />
           </div>
         </Route>
+
         <Route exact path="/movies/:id">
           <MovieDetails movies={Movies} setMovies={setMovies} />
+        </Route>
+        <Route exact path="/movies/edit/:id">
+          <Editmovie movies={Movies} setMovies={setMovies} />
         </Route>
 
         <Route exact path="/add">

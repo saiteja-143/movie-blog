@@ -3,24 +3,33 @@ import Button from "@mui/material/Button";
 import { useState } from "react";
 import TextField from "@mui/material/TextField";
 import { useHistory } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
-export function Addmovie({ Movies, setMovies }) {
+export function Editmovie({ movies, setMovies }) {
   // const [movie, nomovies] = useState(true);
+  const { id } = useParams();
+  // console.log(id);
+  // console.log(movies);
+  const movie = movies[id];
+  // const movie = Movies[id];
   const history = useHistory();
-  const [Movie_name, setMovieName] = useState("");
-  const [poster, setposter] = useState("");
-  const [Rating, setRating] = useState("");
-  const [Summary, setdescription] = useState("");
-  const [trailer, setMovieTrailer] = useState("");
-  const addnewmovie = () => {
-    const newmovie = {
+  const [Movie_name, setMovieName] = useState(movie.Movie_name);
+  const [poster, setposter] = useState(movie.poster);
+  const [Rating, setRating] = useState(movie.Rating);
+  const [Summary, setdescription] = useState(movie.Summary);
+  const [trailer, setMovieTrailer] = useState(movie.trailer);
+  const editmovie = () => {
+    const updatedmovie = {
       Movie_name,
       poster,
       Rating,
       Summary,
       trailer,
     };
-    setMovies([...Movies, newmovie]);
+    const copymovies = [...movies];
+    copymovies[id] = updatedmovie;
+    setMovies(copymovies);
+    // setMovies([...movies, updatedmovie]);
     // nomovies(!movie);
     history.push("/movies");
   };
@@ -68,15 +77,21 @@ export function Addmovie({ Movies, setMovies }) {
         <TextField
           id="outlined-basic"
           label="Movie Trailer"
-          variant="outlined"
           value={trailer}
+          variant="outlined"
           onChange={(event) => setMovieTrailer(event.target.value)}
         ></TextField>
       </p>
 
-      <Button variant="contained" onClick={addnewmovie} className="submit">
-        AddMovie
+      <Button
+        variant="contained"
+        onClick={editmovie}
+        className="submit"
+        color="success"
+      >
+        Save
       </Button>
     </div>
+    // <h1>HTML</h1>
   );
 }

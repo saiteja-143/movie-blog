@@ -15,7 +15,7 @@ export function MovieDetails({ movies, setMovies }) {
   const forwardhistory = useHistory();
   const { id } = useParams();
   const movie = movies[id];
-  console.log(id);
+  // console.log(id);
   const deletemovie = () => {
     const remain = movies.filter((idx) => idx != movies[id]);
     alert("This Action will permenantly Delete the Movie");
@@ -25,9 +25,10 @@ export function MovieDetails({ movies, setMovies }) {
     history.push("/movies");
   };
   const editmovie = () => {
-    const remain = movies.filter((idx) => idx != movies[id]);
-    setMovies(remain);
-    edithistory.push("/add");
+    // const remain = movies.filter((idx) => idx != movies[id]);
+    // setMovies(remain);
+    // console.log(id);
+    edithistory.push("/movies/edit/" + id);
   };
 
   return (
