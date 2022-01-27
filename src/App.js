@@ -10,8 +10,12 @@ import { Notfound } from "./Notfound";
 import { Home } from "./Home";
 import { Addmovie } from "./Addmovie";
 import { Editmovie } from "./Editmovie";
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
+import { useHistory } from "react-router-dom";
 
 function App() {
+  const history = useHistory();
   const Initialmovies = [
     {
       Movie_name: "Avengers EndGame",
@@ -61,7 +65,7 @@ function App() {
 
   return (
     <div>
-      <ul className="nav">
+      {/* <ul className="nav">
         <li>
           <Link to="/" style={{ textDecoration: "none" }} className="home">
             <Button variant="contained" className="button">
@@ -87,7 +91,36 @@ function App() {
             </Button>
           </Link>
         </li>
-      </ul>
+      </ul> */}
+
+      <AppBar position="static">
+        <Toolbar>
+          <Button
+            onClick={() => history.push("/")}
+            size="large"
+            color="inherit"
+            aria-label="home"
+          >
+            Home
+          </Button>
+          <Button
+            onClick={() => history.push("/Movies")}
+            size="large"
+            color="inherit"
+            aria-label="home"
+          >
+            Movies
+          </Button>
+          <Button
+            onClick={() => history.push("/add")}
+            size="large"
+            color="inherit"
+            aria-label="home"
+          >
+            AddMovie
+          </Button>
+        </Toolbar>
+      </AppBar>
 
       <Switch>
         {/* Each route is case, eg. - case '/about': */}
