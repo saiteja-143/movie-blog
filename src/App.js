@@ -66,7 +66,7 @@ function App() {
   return (
     <div>
       {/* <ul className="nav">
-        <li>
+        
           <Link to="/" style={{ textDecoration: "none" }} className="home">
             <Button variant="contained" className="button">
               {" "}
